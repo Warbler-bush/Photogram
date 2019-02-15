@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
+import 'dart:io';
 import 'package:english_words/english_words.dart';
 
 void main() => runApp(TabBarDemo());
@@ -43,7 +45,7 @@ class RandomWordsState extends State<RandomWords> {
   }
 }
 
-// di per se presta sempre immutabile
+// di per se resta sempre immutabile
 class RandomWords extends StatefulWidget {
   @override
   RandomWordsState createState() => new RandomWordsState();
@@ -73,7 +75,7 @@ class TabBarDemo extends StatelessWidget {
               children: [
                 // aggiungi le interfaccie associate qua sotto, corrispondo alle tab
                 RandomWords(),
-                Icon(Icons.directions_transit),
+                ScrollableArea(),
                 Icon(Icons.directions_bike),
               ],
             ),
@@ -85,3 +87,82 @@ class TabBarDemo extends StatelessWidget {
     );
   }
 }
+
+
+
+class ScrollableArea extends StatelessWidget {  //classe che permetettte di creare widget personalizzzato TODO:guardare utilizzo di StateFullWidget
+  static TextEditingController mycontroller = new TextEditingController();
+
+  ScrollableArea({Key key,});
+
+  @override
+  Widget build(BuildContext context) {
+    return new Container(
+        //height: MediaQuery.of(context).size.height/2,
+        padding: const EdgeInsets.all(8.0),
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          reverse: true,
+      //padding: EdgeInsets.all(8.0),
+      child: TextField(
+        controller: ScrollableArea.mycontroller,
+        keyboardType: TextInputType.multiline,
+        maxLines: 26,      //if null -> grow automatically
+        decoration: new InputDecoration(
+            border: new OutlineInputBorder(     //bordi
+              borderRadius: const BorderRadius.all(
+                const Radius.circular(10.0),
+              ),
+            ),
+            filled: true,
+            hintStyle: new TextStyle(color: Colors.grey[800]),
+            hintText: "Inserisci un testo da analizzare",
+            fillColor: Colors.white70),
+      ),
+    )
+    );
+  }
+
+}
+
+/// classe Client @param: ip, port, text, socket */
+class Client{
+  String ip;
+  int port;
+  String text;
+  Socket socket;
+
+  Client();
+  /// si connette al server, invia e riceve
+
+  void connetti(ip,port,text){
+    this.ip = ip;
+    this.port = port;
+    this.text = text;
+    //connessione
+    Socket.connect(this.ip, this.port).then((socket) {
+      print('Connected to: '
+          '${socket.remoteAddress.address}:${socket.remotePort}');
+
+      //invio
+      print("ok");
+      socket.write(this.text); //'{"lang":"it","type":"g","text":"A Wang piacciono i cani"}'
+
+      //ricevo
+      socket.listen((data){
+        print(new String.fromCharCodes(data).trim());
+
+      },
+          onDone: () {
+            print("Done");
+            socket.destroy();//chiudi socket se avvenuta ricezione
+          });
+    });
+  }
+}
+
+
+
+
+
+
