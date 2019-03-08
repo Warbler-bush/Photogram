@@ -54,8 +54,16 @@ class RandomWords extends StatefulWidget {
 //--------------------------------------------------------
 
 class TabBarDemo extends StatelessWidget {
+  void send(){
+    String txt = ScrollableArea.mycontroller.text;
+    //TODO: fare formattazione json
+    Client c = new Client();
+    c.connetti("10.0.2.2", 1235, txt); //10.0.2.2 local ip of machine
+  }
+
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
       home: DefaultTabController(
         length: 3,
@@ -64,25 +72,27 @@ class TabBarDemo extends StatelessWidget {
               bottom: TabBar(
                 //aggiungi le icone qua sotto con i tab
                 tabs: [
-                  Tab(icon: Icon(Icons.directions_car)),
-                  Tab(icon: Icon(Icons.directions_transit)),
-                  Tab(icon: Icon(Icons.directions_bike)),
+                  Tab(icon: Icon(Icons.text_fields)),
+                  Tab(icon: Icon(Icons.photo_camera)),
+                  Tab(icon: Icon(Icons.history)),
                 ],
               ),
-              title: Text('Tabs Demo'),
+              title: Text('PhotoGram'),
             ),
             body: TabBarView(
               children: [
                 // aggiungi le interfaccie associate qua sotto, corrispondo alle tab
-                RandomWords(),
                 ScrollableArea(),
                 Icon(Icons.directions_bike),
+                RandomWords(),
               ],
             ),
             floatingActionButton: new FloatingActionButton(
                 elevation: 0.0,
-                child: new Icon(Icons.check),
-                onPressed: () {})),
+                child: new Icon(Icons.send),
+                onPressed:() {send();} )//() => _send() per parametri
+        ),
+
       ),
     );
   }
@@ -97,30 +107,30 @@ class ScrollableArea extends StatelessWidget {  //classe che permetettte di crea
 
   @override
   Widget build(BuildContext context) {
-    return new Container(
-        //height: MediaQuery.of(context).size.height/2,
-        padding: const EdgeInsets.all(8.0),
-        child: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          reverse: true,
-      //padding: EdgeInsets.all(8.0),
-      child: TextField(
-        controller: ScrollableArea.mycontroller,
-        keyboardType: TextInputType.multiline,
-        maxLines: 26,      //if null -> grow automatically
-        decoration: new InputDecoration(
-            border: new OutlineInputBorder(     //bordi
-              borderRadius: const BorderRadius.all(
-                const Radius.circular(10.0),
-              ),
-            ),
-            filled: true,
-            hintStyle: new TextStyle(color: Colors.grey[800]),
-            hintText: "Inserisci un testo da analizzare",
-            fillColor: Colors.white70),
-      ),
-    )
+    return new SizedBox.expand(
+          child: new Container(
+            //height: MediaQuery.of(context).size.height/2,
+            padding: const EdgeInsets.all(8.0),
+
+          //padding: EdgeInsets.all(8.0),
+          child: TextField(
+            controller: ScrollableArea.mycontroller,
+            keyboardType: TextInputType.multiline,
+            maxLines: 26,      //if null -> grow automatically
+            decoration: new InputDecoration(
+                border: new OutlineInputBorder(     //bordi
+                  borderRadius: const BorderRadius.all(
+                    const Radius.circular(10.0),
+                  ),
+                ),
+                filled: true,
+                hintStyle: new TextStyle(color: Colors.grey[800]),
+                hintText: "Inserisci un testo da analizzare",
+                fillColor: Colors.white70),
+          ),
+      )
     );
+
   }
 
 }
