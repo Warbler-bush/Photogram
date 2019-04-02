@@ -1,0 +1,8 @@
+
+git init
+git add .
+git remote add orgin https://github.com/Zhoner/photogram_rep.git
+git remote -v
+git pull --allow-unrelated-histories origin master
+git commit -m "server"
+git push origin master
