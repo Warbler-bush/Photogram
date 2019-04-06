@@ -26,6 +26,8 @@ class ClientGram:
         self.sock.close()
 
     def reconnect(self,ip,port):
+        self.close()
+        self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.sock.connect((self.ip, self.port))
         
 

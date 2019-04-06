@@ -23,15 +23,16 @@ while True:
 	
 	print("msg:",end="")
 	msg = input()
+	
+	#client.reconnect(ip,port)
 	client.send(ParserOut.parse("ita", _type ,msg))
 	#DoS
 	#ClientGram.runThread(num_client, ParserOut.parse("ita",_type ,msg) )
 	resp = client.receive()
-	
 	print(resp)
-
-	client.close()
-	client.reconnect(ip,port)
+	#client.close()
 	print("----------------------")
+	client.reconnect(ip,port)
+	
 
 client.close()
