@@ -15,8 +15,8 @@ sync with github
 -------------------
 git add .
 git pull --allow-unrelated-histories orgin master
-git push origin master
 git commit -m "commnet"
+git push origin master
 ------------
 commands
 ------------
