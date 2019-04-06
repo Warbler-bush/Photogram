@@ -55,10 +55,23 @@ class TextNLP:
 class ItNLP(TextNLP):
     def __init__(self):
         self.nlp = spacy.load(IT_LANG)
+        self.load_data()
     # da formattare
+
+    def load_data(self):
+        fin = open("data_it")
+        line = 
+
     def analysisGram(self,text):
         row = self._GramProcessing(text)
-        formated = row
+        #
+        #
+        #
+        #
+        #
+        #
+        #
+        #
         return formated
 
     # da formattare
@@ -83,7 +96,6 @@ class EnNLP(TextNLP):
 
     def analysisLogic(self,text):
         row = self._LogicalProcessing(text)
-        formated = row
         return formated
 
     def analysisPoe(self,text):
