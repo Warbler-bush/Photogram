@@ -1,4 +1,5 @@
 from PGClient import *
+import time
 
 fin = open("config.txt","r")
 
@@ -11,11 +12,26 @@ fin.close()
 
 client = ClientGram(ip, port)
 num_client = 1
+_type = "q"
 #test str : "{ \"lang\":\"it\",\"type\":\"g\",\"text\":\"a wang piacciono i cani\" }"
-while not num_client == 0:
-	num_client = int( input("num_client:") )
+while True:
+	#num_client = int( input("num_client:") )
+	print("type{g,l,p,e}:",end="")
+	_type = input()
+	if ( _type == "e"): break
+	
+	
 	print("msg:",end="")
 	msg = input()
-	print("")
-	client.runThread(num_client, ParserOut.parse("ita","g",msg) )
+	client.send(ParserOut.parse("ita", _type ,msg))
+	#DoS
+	#ClientGram.runThread(num_client, ParserOut.parse("ita",_type ,msg) )
+	resp = client.receive()
+	
+	print(resp)
+
+	client.close()
+	client.reconnect(ip,port)
 	print("----------------------")
+
+client.close()
