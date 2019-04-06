@@ -53,32 +53,54 @@ class TextNLP:
 
 
 class ItNLP(TextNLP):
+    p_artis = None
     def __init__(self):
         self.nlp = spacy.load(IT_LANG)
-        self.load_data()
+        #preposizioni articolate
+        ItNLP.p_artis = self.load_data()
+        # nmod  -> dopo il case
+        # amod -> aggettivo
+
+
     # da formattare
 
     def load_data(self):
         fin = open("data_it")
-        line = 
+        mydict = dict()
+        for line in fin:
+            line = fin.readline().splitlines()[0]
+            if(line[0] == "#"):
+                continue
+            
+            row = line.split(";")
+            for element in row:
+                pair = element.split("=")
+                mydict[ pair[0] ] = pair[1]
+        
+        fin.close()
+        return mydict
 
     def analysisGram(self,text):
         row = self._GramProcessing(text)
-        #
-        #
-        #
-        #
-        #
-        #
-        #
-        #
+        formated = row
         return formated
 
-    # da formattare
+    # in realtà le ripetizioni di una parola non viene considerata
+    # dunque fare restituire l'analisi diretta sarebbe scorretto
+    # bensì si deve scorrere la frase di nuovo per poi assegnare ad ogni
+    # pezzo il suo ruolo nella frase
     def analysisLogic(self,text):
+        text = self._preProcLogicalText(text)
         row = self._LogicalProcessing(text)
         formated = row
         return formated
+
+    @staticmethod
+    def _preProcLogicalText(text):
+        #cerca preposizioni articolate
+        for index, value in ItNLP.p_artis.items():
+            text = text.replace(index, value)
+        return text
 
     def analysisPoe(self,text):
         row = self._PoeProcessing(text)

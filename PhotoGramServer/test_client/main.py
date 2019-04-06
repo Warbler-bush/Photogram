@@ -18,7 +18,9 @@ while True:
 	#num_client = int( input("num_client:") )
 	print("type{g,l,p,e}:",end="")
 	_type = input()
-	if ( _type == "e"): break
+	if ( _type == "e"): 
+		client.close()
+		break
 	
 	
 	print("msg:",end="")
