@@ -55,12 +55,13 @@ class TextNLP:
 class ItNLP(TextNLP):
     def __init__(self):
         self.nlp = spacy.load(IT_LANG)
-
+    # da formattare
     def analysisGram(self,text):
         row = self._GramProcessing(text)
         formated = row
         return formated
 
+    # da formattare
     def analysisLogic(self,text):
         row = self._LogicalProcessing(text)
         formated = row

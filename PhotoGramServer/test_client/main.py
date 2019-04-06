@@ -11,7 +11,11 @@ fin.close()
 
 client = ClientGram(ip, port)
 num_client = 1
-
+#test str : "{ \"lang\":\"it\",\"type\":\"g\",\"text\":\"a wang piacciono i cani\" }"
 while not num_client == 0:
-	num_client = int(input("num_client:"))
-	client.runThread(num_client)
+	num_client = int( input("num_client:") )
+	print("msg:",end="")
+	msg = input()
+	print("")
+	client.runThread(num_client, ParserOut.parse("ita","g",msg) )
+	print("----------------------")
