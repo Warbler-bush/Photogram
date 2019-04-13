@@ -2,7 +2,7 @@ import spacy
 import json
 
 
-IT_LANG = "it"
+IT_LANG = "it_core_news_sm"
 EN_LANG = "en_core_web_sm"
 
 GRAMMATICAL = "g"
