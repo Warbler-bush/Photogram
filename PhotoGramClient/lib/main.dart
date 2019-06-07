@@ -3,6 +3,10 @@ import 'dart:io';
 import 'package:firebase_ml_vision/firebase_ml_vision.dart';
 import 'dart:convert';
 import 'package:camera/camera.dart';
+<<<<<<< HEAD
+=======
+import 'package:flutter/material.dart';
+>>>>>>> 632466c9c4469d96e21a534a766605ae6cbd49ab
 import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -39,6 +43,7 @@ Future<String> getValue(String key) async{
   return value;
 }
 
+<<<<<<< HEAD
 /**classe che contiene tutti i parametri statici utilizzati dalle varie classi*/
 class Context{
   /*From tabBar*/
@@ -102,6 +107,8 @@ class Context{
 }
 
 
+=======
+>>>>>>> 632466c9c4469d96e21a534a766605ae6cbd49ab
 
 class History extends StatefulWidget{
   @override
@@ -196,21 +203,37 @@ class _TabBarDemo extends State<TabBarDemo> with SingleTickerProviderStateMixin 
     Tab(icon: Icon(Icons.settings)),
   ];
 
+<<<<<<< HEAD
+=======
+  static TabController tabController;
+>>>>>>> 632466c9c4469d96e21a534a766605ae6cbd49ab
 
   @override
   void initState() {
     super.initState();
+<<<<<<< HEAD
     Context.tabController = new TabController(vsync: this, length: myTabs.length);
+=======
+    tabController = new TabController(vsync: this, length: myTabs.length);
+>>>>>>> 632466c9c4469d96e21a534a766605ae6cbd49ab
   }
 
   @override
   void dispose() {
+<<<<<<< HEAD
     Context.tabController .dispose();
+=======
+    tabController.dispose();
+>>>>>>> 632466c9c4469d96e21a534a766605ae6cbd49ab
     super.dispose();
   }
 
   void send(String type,String ip, int port){
+<<<<<<< HEAD
     Message m = new Message(Context.getTextArea(), "it_core_news_sm", type);
+=======
+    Message m = new Message(ScrollableArea.mycontroller.text, "it_core_news_sm", type);
+>>>>>>> 632466c9c4469d96e21a534a766605ae6cbd49ab
     Client c = new Client();
     print(ip);
     c.connetti(ip, port, m.toJson().toString()); //10.0.2.2 local ip of machine
@@ -234,7 +257,11 @@ class _TabBarDemo extends State<TabBarDemo> with SingleTickerProviderStateMixin 
                   Tab(icon: Icon(Icons.settings)),
 
                 ],
+<<<<<<< HEAD
                 controller: Context.tabController ,
+=======
+                controller: tabController,
+>>>>>>> 632466c9c4469d96e21a534a766605ae6cbd49ab
               ),
               title: Text('PhotoGram'),
 
@@ -248,16 +275,27 @@ class _TabBarDemo extends State<TabBarDemo> with SingleTickerProviderStateMixin 
                 History(),
                 Settings(),
               ],
+<<<<<<< HEAD
               controller: Context.tabController ,
+=======
+              controller: tabController,
+>>>>>>> 632466c9c4469d96e21a534a766605ae6cbd49ab
             ),
             floatingActionButton: new FloatingActionButton(
                 elevation: 0.0,
                 child: new Icon(Icons.send),
                 onPressed:() {
+<<<<<<< HEAD
                   if(Context.isGrammaticale()== true) {
                     send('g',Context.getIpSettings(),Context.getPortSettings());
                   }else{
                     send('l',Context.getIpSettings(),Context.getPortSettings());//() => _send() per parametri
+=======
+                  if(_Settings.grammaticale == true) {
+                    send('g',_Settings.ip.text,int.parse( _Settings.port.text));
+                  }else{
+                    send('l',_Settings.ip.text,int.parse(_Settings.port.text));//() => _send() per parametri
+>>>>>>> 632466c9c4469d96e21a534a766605ae6cbd49ab
                   }
                 } )
         ),
@@ -276,6 +314,15 @@ class Settings extends StatefulWidget {
 
 class _Settings extends State<Settings>{
 
+<<<<<<< HEAD
+=======
+  static TextEditingController ip =  new TextEditingController();
+  static TextEditingController port =  new TextEditingController();
+
+  static bool logica;
+  static bool grammaticale = true;
+
+>>>>>>> 632466c9c4469d96e21a534a766605ae6cbd49ab
   int _curValue;
 
 
@@ -286,14 +333,24 @@ class _Settings extends State<Settings>{
 
       switch (_curValue) {
         case 0:
+<<<<<<< HEAD
           Context.setGrammaticale(true);
           Context.setLogica(false);
+=======
+          grammaticale = true;
+          logica = false;
+>>>>>>> 632466c9c4469d96e21a534a766605ae6cbd49ab
           print("grammaticale");
           break;
 
         case 1:
+<<<<<<< HEAD
           Context.setLogica(true);
           Context.setGrammaticale(false);
+=======
+          logica = true;
+          grammaticale = false;
+>>>>>>> 632466c9c4469d96e21a534a766605ae6cbd49ab
           print("logica");
           break;
 
@@ -306,8 +363,13 @@ class _Settings extends State<Settings>{
     setState(() {
       _curValue = 0;
 
+<<<<<<< HEAD
       Context.setIpSettings("185.51.138.58") ;
       Context.setPortSettings("6888");
+=======
+      _Settings.ip.text = "185.51.138.58";
+      _Settings.port.text = "6888";
+>>>>>>> 632466c9c4469d96e21a534a766605ae6cbd49ab
     });
     super.initState();
   }
@@ -360,7 +422,11 @@ class _Settings extends State<Settings>{
               style: new TextStyle(fontSize: 16.0),
             ),
             new TextField(
+<<<<<<< HEAD
             controller: Context.ip,
+=======
+            controller: _Settings.ip,
+>>>>>>> 632466c9c4469d96e21a534a766605ae6cbd49ab
               decoration: InputDecoration(
                   labelText: 'Inserisci ip'
               ),
@@ -372,7 +438,11 @@ class _Settings extends State<Settings>{
               style: new TextStyle(fontSize: 16.0),
             ),
             new TextField(
+<<<<<<< HEAD
               controller: Context.port,
+=======
+              controller: _Settings.port,
+>>>>>>> 632466c9c4469d96e21a534a766605ae6cbd49ab
               decoration: InputDecoration(
                   labelText: 'Inserisci la porta'
               ),
@@ -437,6 +507,10 @@ class Result extends StatelessWidget{
 }
 
 class ScrollableArea extends StatelessWidget {  //classe che permetettte di creare widget personalizzzato TODO:guardare utilizzo di StateFullWidget
+<<<<<<< HEAD
+=======
+  static TextEditingController mycontroller = new TextEditingController();
+>>>>>>> 632466c9c4469d96e21a534a766605ae6cbd49ab
 
   ScrollableArea({Key key,});
 
@@ -447,7 +521,11 @@ class ScrollableArea extends StatelessWidget {  //classe che permetettte di crea
           padding: const EdgeInsets.all(8.0),
 
           child: TextField(
+<<<<<<< HEAD
             controller: Context.mycontroller,
+=======
+            controller: ScrollableArea.mycontroller,
+>>>>>>> 632466c9c4469d96e21a534a766605ae6cbd49ab
             keyboardType: TextInputType.multiline,
             maxLines: 26,      //if null -> grow automatically
             decoration: new InputDecoration(
@@ -618,8 +696,13 @@ class _CameraScreenState extends State<CameraScreen> {
 
     testo.replaceAll(new RegExp(r'\n'), '  ');
     print(testo);
+<<<<<<< HEAD
     Context.setTextArea(testo);
     Context.tabController.animateTo((Context.tabController .index + 3) % 4);
+=======
+    ScrollableArea.mycontroller.text = testo;
+    _TabBarDemo.tabController.animateTo((_TabBarDemo.tabController.index + 3) % 4);
+>>>>>>> 632466c9c4469d96e21a534a766605ae6cbd49ab
     return filePath;
   }
 
@@ -675,8 +758,13 @@ class Client{
         //setto la sharedPreferences
         setHistory(textFromServer);
 
+<<<<<<< HEAD
         if(Context.tabController .index == 0) {
           Context.tabController .animateTo(2);
+=======
+        if(_TabBarDemo.tabController.index == 0) {
+          _TabBarDemo.tabController.animateTo(2);
+>>>>>>> 632466c9c4469d96e21a534a766605ae6cbd49ab
         }
 
       },
