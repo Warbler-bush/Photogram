@@ -3,7 +3,11 @@ sync workspace
 ------------------
 git init
 git add .
+<<<<<<< HEAD
 git remote add orgin https://github.com/Zhoner/photogram.git
+=======
+git remote add origin https://github.com/Zhoner/photogram.git
+>>>>>>> 3157e8176b49ad27f614f70a5015b413259eed3d
 git remote -v
 git pull --allow-unrelated-histories origin master
 git commit -m "server"
@@ -20,4 +24,8 @@ git push origin master
 commands
 ------------
 git ls-files -> view the files
+<<<<<<< HEAD
 git pull --allow-unrelated-histories orgin master -> get project from the repository
+=======
+git pull --allow-unrelated-histories orgin master -> get project from the repository
+>>>>>>> 3157e8176b49ad27f614f70a5015b413259eed3d
