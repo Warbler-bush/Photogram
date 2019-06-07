@@ -3,7 +3,7 @@ sync workspace
 ------------------
 git init
 git add .
-git remote add orgin https://github.com/Zhoner/photogram.git
+git remote add origin https://github.com/Zhoner/photogram.git
 git remote -v
 git pull --allow-unrelated-histories origin master
 git commit -m "server"
