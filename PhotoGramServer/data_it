@@ -1,0 +1,78 @@
+#quelle non composte sono ignorate
+p
+{
+dello=del lo;dell'=del l';della=del la
+dei=del i;degli=del gli;delle=del le
+dalla=dal la;allo=al lo;all'=al l';alla=al la
+ai=a i;agli=al gli;alle=al le;dallo=dal lo
+dall'=dal l';dalla=dal la;dai=da i;dagli=da gli
+dalle=dal le;nello=nel lo;nell'=nel l';nella=nel la
+nei=nel i;negli=nel gli;nelle=nel le
+sullo=sul lo;sull'=sul l';sulla=sul la
+sui=su i;sugli=su gli;sulle=sul le
+}
+#mapping eng -> ita
+#http://universaldependencies.org/docs/it/feat/PronType.html
+#nested dict https://www.geeksforgeeks.org/python-nested-dictionary/
+DictEn2It
+{
+#dictionary PronType
+PronType
+{
+Prs=Personale o pronome possessivo personale o determinativo
+Rcp=Pronome reciproco;Art=Articolo;Int=Pronome interrogativo, determinativo, numerale o avverbio
+Rel=Pronome relativo, determinativo, numerale o avverbio;Dem=Pronome dimostrativo, determinativo, numerale o avverbio
+Tot=Pronome colletivo, determinativo o avverbio;Neg=Pronome negativo, determinativo o avverbio;Ind=Pronome indefinito, determinativo, numerale o avverbio
+}
+#dictionary Mood
+Mood
+{
+Ind=Indicativo;Imp=Imperativo;Cnd=Condizionale;Sub=Congiuntivo / ...
+}
+#dict VerbForm
+VerbForm
+{
+Fin=Finita;Inf=Infinita;Part=Participio;Ger=Gerundio
+}
+#dict Definite
+Definite
+{
+Def=Definito;Ind=Indefinito
+}
+Tense
+{
+Past=Passato;Pres=Presente;Fut=Futuro;Imp=Imperfetto
+}
+Degree
+{
+Pos=Positivo, prima classe;Cmp=Comparativo, seconda classe;Sup=Superlativo, terza classe;Abs=Superlativo assouluto
+}
+i
+{
+VA__=Verbo ausiliare,;V__=Verbo ;SP___=Nome Proprio,;PC__=Pronome Clitico ;PD__=Pronome Dimostrativo ;PE__=Pronome personale ;SP__=Nome Propio ;E__=preposizione ;SP__=Nome Propio
+BN__=Avverbio di Negazione ;B___=Avverbio;B__=Avverbio ;S__=Nome ;PI__=Pronome indefinito ;PP__=Pronome Posessivo ;PQ__=Pronome Interrogativo ;PR__=Pronome Relativo ;S___=Nome
+AP__=Aggettivo possessivo ;A__=Aggettivo ;CC___=congiunzione coordinante;RD__=Articolo Definito ;RI__=Articolo Indefinito ;DE__=Determinante Esclamativo ;A___=Aggettivo
+DI__=Determinante Indefinito ;DQ__=Determinante Interrogativo ;DR__=Determinante Relativo ;DD__=Determinante Dimostrativo;T__=Predeterminante ;CS___=Congiunzione Subordinante
+Yes=Si
+}
+Number
+{
+Sing=Singolare;Plur=Plurale
+}
+Gender
+{
+Masc=Maschile;Fem=Femminile
+}
+e
+{
+Clitic=Clitico;Person=Persona;Poss=Possessivo
+Mood=Modo
+PronType=forma pronominale
+#Articolo definito o indefinito
+Definite=Articolo
+Gender=Genere;Number=Numero
+Tense=Tempo
+#Art=Articolo
+VerbForm=Forma del verbo;Degree=Classe
+}
+}
