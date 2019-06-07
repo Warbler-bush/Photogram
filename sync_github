@@ -1,0 +1,23 @@
+------------------
+sync workspace
+------------------
+git init
+git add .
+git remote add orgin https://github.com/Zhoner/photogram.git
+git remote -v
+git pull --allow-unrelated-histories origin master
+git commit -m "server"
+git push origin master
+
+
+-------------------
+sync with github
+-------------------
+git add .
+git commit -m "commnet"
+git push origin master
+------------
+commands
+------------
+git ls-files -> view the files
+git pull --allow-unrelated-histories orgin master -> get project from the repository

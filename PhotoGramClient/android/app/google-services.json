@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "430687014787",
+    "firebase_url": "https://photogram-3761d.firebaseio.com",
+    "project_id": "photogram-3761d",
+    "storage_bucket": "photogram-3761d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:430687014787:android:3e228672a5f6966f",
+        "android_client_info": {
+          "package_name": "snakeaters.photogram"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "430687014787-up87punlefeuni6ud2u12a26tmifgl2g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "snakeaters.photogram",
+            "certificate_hash": "c5e1162e972fc56cdbfcc4618c3fd65f71622ddc"
+          }
+        },
+        {
+          "client_id": "430687014787-jdt7i3e06ndn60tt56gpatonll553m64.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDy92CS6ONtzHaYa3D4T-eNgJx7L3GpqAI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "430687014787-jdt7i3e06ndn60tt56gpatonll553m64.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
